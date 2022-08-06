@@ -1,0 +1,61 @@
+@import "../../../shared/styles/Colours.module.scss";
+@import "../../layout/Layout.module.scss";
+
+.header_container {
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 3px 20px #99999930;
+
+    .nav_container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .logo_container {
+            display: flex;
+            align-items: center;
+            .logo {
+                font-size: 2em;
+                color: $primary_blue;
+            }
+            img {
+                height: 2em;
+                margin: 0 0.5em;
+                margin-top: 0.2em;
+            }
+            img.flip {
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+            }
+        }
+
+        ul {
+            width: 50%;
+            padding: 0 1em;
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            li {
+                cursor: pointer;
+                transition: ease-in-out 0.3s;
+                a {
+                    color: $secondary_gray_01;
+                    padding: 0.5em;
+                    border-radius: 2px;
+                    margin: 0.2em;
+                    text-decoration: none;
+                    &:hover {
+                        color: $primary_blue;
+                        background-color: $secondary_blue_04;
+                    }
+                }
+            }
+
+            &.left {
+                justify-content: right;
+            }
+        }
+    }
+}

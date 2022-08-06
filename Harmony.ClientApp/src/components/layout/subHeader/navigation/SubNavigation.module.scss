@@ -1,0 +1,43 @@
+@import "../../../../shared/styles/Colours.module.scss";
+
+.sub_header_nav {
+    display: flex;
+    z-index: 1;
+    width: 100%;
+    ul {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        li {
+            position: relative;
+            cursor: pointer;
+            padding: 0 0.5em;
+            a {
+                text-transform: uppercase;
+                text-decoration: none;
+                color: white;
+                font-size: 20px;
+
+                &:hover::after {
+                    width: 3em;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 1.4em;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    width: 0;
+                    height: 0.2rem;
+                    margin: 0 auto;
+                    background-color: $secondary_yellow_02;
+                    border-radius: 10px;
+                    transition: width 0.2s ease-in-out;
+                }
+            }
+        }
+    }
+}
