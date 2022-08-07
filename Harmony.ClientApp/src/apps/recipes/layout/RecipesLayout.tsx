@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
-import { css } from "../../../../shared/utility";
-import { ISubNavLink } from "../../../layout/subHeader/navigation/models/ISubNavLink";
-import { SubHeader } from "../../../layout/subHeader/SubHeader"
+import { css } from "../../../shared/utility";
+import { ISubNavLink } from "../../../components/layout/subHeader/navigation/models/ISubNavLink";
+import { SubHeader } from "../../../components/layout/subHeader/SubHeader";
 import { RecipesRoutes } from "../RecipesRoutes";
 import styles from './RecipesLayout.module.scss';
+import React from "react";
 
 export const RecipesLayout = (): JSX.Element => {
     const links: ISubNavLink[] = [
