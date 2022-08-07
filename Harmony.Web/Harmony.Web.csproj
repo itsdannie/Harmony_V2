@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -6,10 +6,20 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<!-- Add $(SpaRoot) Property to reference the other Frontend Project -->
 		<SpaRoot>..\Harmony.ClientApp\</SpaRoot>
-	</PropertyGroup>
+	  <UserSecretsId>d54c20a4-fe3f-4144-89b5-37ed7b41503e</UserSecretsId>
+  </PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="11.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.7" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Harmony.Common\Harmony.Common.csproj" />
+	  <ProjectReference Include="..\Harmony.Recipes.Common\Harmony.Recipes.Common.csproj" />
+	  <ProjectReference Include="..\Harmony.Recipes.Services\Harmony.Recipes.Services.csproj" />
 	</ItemGroup>
 
 	<!-- self-contained publish settings -->

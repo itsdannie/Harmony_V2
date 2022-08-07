@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Harmony.Common\Harmony.Common.csproj" />
+    <ProjectReference Include="..\Harmony.Recipes.Data\Harmony.Recipes.Data.csproj" />
+    <ProjectReference Include="..\Harmony.Recipes.Models\Harmony.Recipes.Models.csproj" />
+  </ItemGroup>
+
+</Project>

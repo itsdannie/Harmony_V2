@@ -1,3 +1,10 @@
+using Harmony.Common.Mapping;
+using Harmony.Recipes.Common;
+using Harmony.Recipes.Data;
+using Harmony.Recipes.Services.Contracts;
+using Harmony.Recipes.Services.Implementations;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +13,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+ConfigureServices(builder.Services);
+ConfigureDatabases(builder.Services, builder.Configuration);
 
 var app = builder.Build();
 
@@ -41,4 +51,23 @@ Task HandleApiFallback(HttpContext context)
 {
     context.Response.StatusCode = StatusCodes.Status404NotFound;
     return Task.CompletedTask;
+}
+
+void ConfigureServices(IServiceCollection services) {
+    services.AddAutoMapper(typeof(AutoMapperProfile));
+    services.AddHttpContextAccessor();
+
+    services.AddTransient<IRecipesService, RecipesService>();
+}
+
+void ConfigureDatabases(IServiceCollection services, IConfiguration config)
+{
+    string recipesConnectionString = config.GetConnectionString(RecipeAppSettings.ConnectionStringName);
+    services.AddDbContext<RecipesDbContext>(options =>
+    {
+        options.UseSqlServer(recipesConnectionString, builder =>
+        {
+            builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+        });
+    });
 }
