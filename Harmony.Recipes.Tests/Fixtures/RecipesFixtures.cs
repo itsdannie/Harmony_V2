@@ -17,6 +17,8 @@ namespace Harmony.Recipes.Tests.Fixtures
                 new() { Id = 1, Title = "Potatoes", Rating =  3 },
                 new() { Id = 2, Title = "Cupcakes", Rating =  5 },
                 new() { Id = 3, Title = "Fritata", Rating =  1 },
+                new() { Id = 4, Title = "Useless Recipe", Rating =  1,  IsDeleted = true },
+                new() { Id = 5, Title = "Ew", Rating =  1, IsDeleted = true },
             };
 
             await dbContext.Recipes.AddRangeAsync(recipes);

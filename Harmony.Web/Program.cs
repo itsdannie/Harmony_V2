@@ -56,7 +56,7 @@ Task HandleApiFallback(HttpContext context)
 void ConfigureServices(IServiceCollection services) {
     services.AddAutoMapper(typeof(AutoMapperProfile));
     services.AddHttpContextAccessor();
-
+    
     services.AddTransient<IRecipesService, RecipesService>();
 }
 
