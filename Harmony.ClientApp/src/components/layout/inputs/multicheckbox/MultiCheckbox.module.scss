@@ -1,0 +1,25 @@
+@import "../../../../shared/styles/Colours.module.scss";
+
+.checkbox_container {
+    div[class*="field-checkbox"] {
+        padding: 0.5em 0 !important;
+        label {
+            margin-left: 0.5rem;
+            color: $secondary_gray_01;
+        }
+
+        div[class*="p-checkbox-box"] {
+            &[class*="p-highlight"] {
+                background: $primary_green !important;
+                border-color: $primary_green !important;
+            }
+            &[class*="p-focus"] {
+                border-color: $primary_green !important;
+                box-shadow:  0 0 0 0.2rem $secondary_green_03;  
+            }
+            &:hover {
+                border-color: $primary_green !important;
+            }
+        }
+    }
+}

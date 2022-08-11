@@ -1,0 +1,9 @@
+@import '../../../../../shared/styles/Colours.module.scss';
+
+.filter_group_container {
+    h3 {
+        color: $secondary_gray_01;
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+}
