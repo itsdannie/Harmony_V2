@@ -1,0 +1,17 @@
+
+Client Id:  	b80af848-bc29-4de7-8ec6-6c006b3aa29c
+Client Secret:  	Q7GYLZffIxcyxeIJsXRLhLA1I683H4lvGhyETplvZYA=
+Title:  	Atlas Copco CTS Tools 2022
+App Domain:  	ctstools.azurewebsites.net
+Redirect URI:  	https://ctstools.azurewebsites.net/
+
+
+
+
+Client Id:  	daaf5c04-8eeb-4f35-9648-f29e86f3c845
+Client Secret:  	y3zMuGRc+iq3zH3IevwU+QteBz5SD9ofSgAX62lSZx8=
+Title:  	Atlas Copco IP Prices 2022
+App Domain:  	acipprices.azurewebsites.net
+Redirect URI:  	https://acipprices.azurewebsites.net/
+
+

@@ -5,6 +5,7 @@ import { FilterGroup } from './filterGroup/FIlterGroup';
 import { useState } from 'react';
 import { defaultFoodFilters, IFoodFilters } from './models/IFoodFilters';
 import { ISecondaryFoodFilters } from './models/ISecondaryFoodFilters';
+import { SearchResults } from './searchResults/SearchResults';
 
 export const SearchContainer = (props: ISearchContainerProps): JSX.Element => {
     const [selectedFilters, setSelectedFilters] = useState<IFoodFilters>(defaultFoodFilters);
@@ -63,6 +64,7 @@ export const SearchContainer = (props: ISearchContainerProps): JSX.Element => {
                         <li>Surprise me</li>
                     </ul>
                 </div>
+                <SearchResults filters={selectedFilters} />
             </div>
         </div>
     );

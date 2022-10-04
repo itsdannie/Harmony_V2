@@ -1,0 +1,21 @@
+@import "../../../../../shared/styles/Colours.module.scss";
+
+.form_container {
+    h1 {
+        color: $primary_blue;
+        font-size: 400;
+    }
+    span[class^="p-rating-icon"] {
+        box-shadow: none !important;
+        color: $accent_yellow !important;
+    }
+    button {
+        background: $accent_yellow !important;
+        border-color: $accent_yellow !important;
+        box-shadow: none !important;
+        &:hover {
+            background: $secondary_yellow_01 !important;
+            border-color: $secondary_yellow_01 !important;
+        }
+    }
+}

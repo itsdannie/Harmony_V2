@@ -16,7 +16,7 @@ namespace Harmony.Web.Controllers.Recipes
             _service = service;
         }
 
-        [HttpGet("/all")]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllRecipes()
         {
             ICollection<RecipeViewDto> recipes = await _service.GetAllAsync();
@@ -33,7 +33,7 @@ namespace Harmony.Web.Controllers.Recipes
             return this.Ok(recipe);
         }
 
-        [HttpPost("/create")]
+        [HttpPost("create")]
         public async Task<IActionResult> Create(RecipeDto newRecipe)
         {
             int id = await _service.CreateAsync(newRecipe);
@@ -41,7 +41,7 @@ namespace Harmony.Web.Controllers.Recipes
             return this.Ok(new { Id = id});
         }
 
-        [HttpPut("/update")]
+        [HttpPut("update")]
         public async Task<IActionResult> Update(RecipeDto updatedRecipe)
         {
             await _service.UpdateAsync(updatedRecipe);
@@ -49,7 +49,7 @@ namespace Harmony.Web.Controllers.Recipes
             return this.Ok();
         }
 
-        [HttpDelete("/delete")]
+        [HttpDelete("delete")]
         public async Task<IActionResult> Delete(int id)
         {
             await _service.DeleteAsync(id);
