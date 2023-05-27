@@ -18,7 +18,7 @@ export const Header = (): JSX.Element => {
                     <img src={leaf} />
                 </div>
                 <ul>
-                    <li><Link to="/apps/recipes">ABOUT</Link></li>
+                    <li><Link to="/apps/fitness">FITNESS</Link></li>
                     <li><Link to="/apps/recipes">OTHER</Link></li>
                 </ul>
             </div>

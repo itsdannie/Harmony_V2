@@ -1,0 +1,46 @@
+@import "../../../../../shared/styles/Colours.module.scss";
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    &:hover {
+        i[class*="pi-ellipsis-v"] {
+            display: flex !important;
+        }
+    }
+
+    .title {
+        font-size: 1em;
+        font-family: "Alfa Slab One", cursive;
+    }
+    .sub_title {
+        font-size: 0.9rem;
+    }
+    .checklist {
+        display: flex;
+        align-items: center;
+        position: relative;
+        i {
+            font-size: 1.7em;
+            cursor: pointer;
+            
+            &[class*="pi-check-square"] {
+                color: $fitness_primary_green;
+                padding-right: 0.5em;
+            }
+
+            &[class*="pi-stop"] {
+                padding-right: 0.5em;
+            }
+
+            &[class*="pi-ellipsis-v"] {
+                display: none;
+                font-size: 1.3em;
+                position: absolute;
+                left: 1.5em;
+                top: 0.5em;
+            }
+        }
+    }
+}

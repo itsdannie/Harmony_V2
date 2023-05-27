@@ -1,0 +1,37 @@
+@import "../../../../shared/styles/Colours.module.scss";
+.card {
+    margin: 2em;
+    background-color: white;
+    width: 25em;
+    min-height: 35em;
+    border-radius: 15px;
+    padding: 1.3em 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $fitness_secondary_violet_01;
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .day {
+            letter-spacing: 0.9rem;
+        }
+
+        .title {
+            font-family: 'Alfa Slab One', cursive;
+            margin: 0.3em;
+            font-size: 2.5em;
+        }
+    }
+    .items {
+        margin-top: .6em;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        &>div {
+            margin-bottom: 1em;
+        }
+    }
+}
