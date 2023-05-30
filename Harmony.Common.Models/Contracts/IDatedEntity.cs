@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Harmony.Recipes.Models.Contracts
+namespace Harmony.Common.Models.Contracts
 {
     public interface IDatedEntity
     {

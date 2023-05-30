@@ -1,29 +1,31 @@
 ﻿using Harmony.Common.Models.Contracts;
-using Harmony.Recipes.Models;
+using Harmony.Fitness.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
 
-namespace Harmony.Recipes.Data
+namespace Harmony.Fitness.Data
 {
-    public class RecipesDbContext : DbContext
+    public class FitnessDbContext : DbContext
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =
-            typeof(RecipesDbContext).GetMethod(
+            typeof(FitnessDbContext).GetMethod(
                 nameof(SetIsDeletedQueryFilter),
                 BindingFlags.NonPublic | BindingFlags.Static);
 
         private IHttpContextAccessor _httpContextAccessor;
 
-        public RecipesDbContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor) : base(options)
+        public FitnessDbContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor) : base(options)
         {
             this._httpContextAccessor = httpContextAccessor;
             this.ChangeTracker.StateChanged += this.ChangeTracker_StateChanged;
             this.ChangeTracker.Tracked += this.ChangeTracker_Tracked;
         }
 
-        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<ExerciseProperty> ExerciseDetails { get; set; }
+        public DbSet<ExerciseSuggestion> ExerciseSuggestions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -38,7 +40,7 @@ namespace Harmony.Recipes.Data
             base.OnModelCreating(modelBuilder);
 
             // Finds classes that implement 'IEntityTypeConfiguration<>' in the assembly and applies them.
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(RecipesDbContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(FitnessDbContext).Assembly);
 
             var entityTypes = modelBuilder.Model.GetEntityTypes().ToList();
 
@@ -82,9 +84,8 @@ namespace Harmony.Recipes.Data
             }
 
         }
-
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)
-         where T : class, IDeletable
+       where T : class, IDeletable
         {
             builder.Entity<T>().HasQueryFilter(e => !e.IsDeleted);
         }

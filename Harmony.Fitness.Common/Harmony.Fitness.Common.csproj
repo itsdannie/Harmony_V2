@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Harmony.Common.Models\Harmony.Common.Models.csproj" />
-  </ItemGroup>
-
 </Project>

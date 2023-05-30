@@ -1,4 +1,4 @@
-﻿using Harmony.Recipes.Models.Contracts;
+﻿using Harmony.Common.Models.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

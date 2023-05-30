@@ -22,6 +22,8 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Harmony.Common\Harmony.Common.csproj" />
+	  <ProjectReference Include="..\Harmony.Fitness.Common\Harmony.Fitness.Common.csproj" />
+	  <ProjectReference Include="..\Harmony.Fitness.Data\Harmony.Fitness.Data.csproj" />
 	  <ProjectReference Include="..\Harmony.Recipes.Common\Harmony.Recipes.Common.csproj" />
 	  <ProjectReference Include="..\Harmony.Recipes.Services\Harmony.Recipes.Services.csproj" />
 	</ItemGroup>
