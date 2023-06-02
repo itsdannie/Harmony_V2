@@ -25,11 +25,46 @@
             font-family: "Alfa Slab One", cursive;
             margin: 0.3em;
             font-size: 2.5em;
+            text-align: center;
+
+            .title_editor {
+                display: flex;
+                width: 100%;
+                input {
+                    font-family: "Alfa Slab One", cursive;
+                    display: flex;
+                    font-size: 1.5rem;
+                    width: 100%;
+                    color: inherit;
+                    border: none;
+                    border-bottom: 0.1rem solid $fitness_secondary_violet_02;
+                    outline: none;
+                    &:hover,
+                    :active {
+                        border-color: $fitness_secondary_violet_01 !important;
+                    }
+                }
+
+                .edit_actions {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    color: $fitness_secondary_violet_01;
+                    i {
+                        cursor: pointer !important;
+                        font-size: 1rem;
+                        padding: 0.2rem;
+                        &:hover {
+                            color: $fitness_primary_violet;
+                        }
+                    }
+                }
+            }
         }
 
         i[class*="pi-pencil"] {
             font-size: 1rem;
-            padding: 0 .5rem;
+            padding: 0 0.5rem;
             cursor: pointer;
             position: absolute;
             display: none;
@@ -38,6 +73,9 @@
         &:hover {
             i[class*="pi-pencil"] {
                 display: inline-flex;
+                &:hover {
+                    color: $fitness_primary_violet;
+                }
             }
         }
     }

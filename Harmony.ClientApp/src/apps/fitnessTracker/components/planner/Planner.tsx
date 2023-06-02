@@ -28,6 +28,7 @@ export const Planner = (): JSX.Element => {
                 <Card
                     workout={focusedWorkout}
                     isLoading={isLoading}
+                    updateWorkoutState={setFocusedWorkout}
                 />
             </div>
             <div className={styles.calendar_container}>

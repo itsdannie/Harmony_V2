@@ -1,5 +1,6 @@
 ﻿using Harmony.Fitness.Services.Contracts;
 using Harmony.Fitness.Services.DTOs;
+using Harmony.Fitness.Services.InputModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,13 @@ namespace Harmony.Web.Controllers.Fitness
             WorkoutDto? workout = await _workoutsService.GetWorkoutForToday();
 
             return this.Ok(workout);
+        }
+
+        [HttpPut("title/{id}")]
+        public async Task<IActionResult> GetWorkoutForToday(int id, [FromBody] WorkoutTitleInputModel input)
+        {
+            await _workoutsService.UpdateTitle(id, input.Title);
+            return this.Ok();
         }
     }
 }

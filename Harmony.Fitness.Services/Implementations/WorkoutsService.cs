@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Harmony.Fitness.Data;
+using Harmony.Fitness.Models;
 using Harmony.Fitness.Services.Contracts;
 using Harmony.Fitness.Services.DTOs;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +32,22 @@ namespace Harmony.Fitness.Services.Implementations
                 .FirstOrDefaultAsync(w => w.Date.Date == today.Date);
 
             return workout;
+        }
+
+        public async Task UpdateTitle(int id, string title)
+        {
+            Workout? workout = await _db.Workouts
+                .FirstOrDefaultAsync(w => w.Id == id);
+
+            if (workout == null)
+            {
+                throw new ArgumentOutOfRangeException($"No workout was found with id {id}");
+            }
+
+            workout.Title = title;
+
+            _db.Update(workout);
+            await _db.SaveChangesAsync();
         }
     }
 }

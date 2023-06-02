@@ -10,5 +10,6 @@ namespace Harmony.Fitness.Services.Contracts
     public interface IWorkoutsService
     {
         Task<WorkoutDto?> GetWorkoutForToday();
+        Task UpdateTitle(int id, string title);
     }
 }
