@@ -16,7 +16,7 @@ namespace Harmony.Fitness.Data
 
         private IHttpContextAccessor _httpContextAccessor;
 
-        public FitnessDbContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor) : base(options)
+        public FitnessDbContext(DbContextOptions<FitnessDbContext> options, IHttpContextAccessor httpContextAccessor) : base(options)
         {
             this._httpContextAccessor = httpContextAccessor;
             this.ChangeTracker.StateChanged += this.ChangeTracker_StateChanged;

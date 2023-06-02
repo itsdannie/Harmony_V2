@@ -1,6 +1,6 @@
 Tasks:
 1. Daily Workout
- 1.1. When I open the app, I want to be able to see the workout planned for today.
+ 1.1. When I open the app, I want to be able to see the workout planned for today. - DONE
  1.2. I would like to be able to change the workout for today
  1.3. If there isn't a workout planned I should have the option to add a workout
  1.4. When I want to add an exercise, I should get suggestions of exercises while typing

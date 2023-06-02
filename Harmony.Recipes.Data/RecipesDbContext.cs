@@ -16,7 +16,7 @@ namespace Harmony.Recipes.Data
 
         private IHttpContextAccessor _httpContextAccessor;
 
-        public RecipesDbContext(DbContextOptions options, IHttpContextAccessor httpContextAccessor) : base(options)
+        public RecipesDbContext(DbContextOptions<RecipesDbContext> options, IHttpContextAccessor httpContextAccessor) : base(options)
         {
             this._httpContextAccessor = httpContextAccessor;
             this.ChangeTracker.StateChanged += this.ChangeTracker_StateChanged;

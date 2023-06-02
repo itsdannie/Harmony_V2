@@ -1,4 +1,4 @@
-@import "../../../../../shared/styles/Colours.module.scss";
+@import "../../../../../../shared/styles/Colours.module.scss";
 .item {
     display: flex;
     flex-direction: row;
@@ -16,7 +16,15 @@
     }
     .sub_title {
         font-size: 0.9rem;
+        .unit {
+            margin-right: 0.5rem;
+        }
+
+        .value {
+            margin-right: 0.2rem;
+        }
     }
+
     .checklist {
         display: flex;
         align-items: center;
@@ -24,7 +32,7 @@
         i {
             font-size: 1.7em;
             cursor: pointer;
-            
+
             &[class*="pi-check-square"] {
                 color: $fitness_primary_green;
                 padding-right: 0.5em;

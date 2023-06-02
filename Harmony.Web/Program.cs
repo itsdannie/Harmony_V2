@@ -1,6 +1,8 @@
 using Harmony.Common.Mapping;
 using Harmony.Fitness.Common;
 using Harmony.Fitness.Data;
+using Harmony.Fitness.Services.Contracts;
+using Harmony.Fitness.Services.Implementations;
 using Harmony.Recipes.Common;
 using Harmony.Recipes.Data;
 using Harmony.Recipes.Services.Contracts;
@@ -59,8 +61,11 @@ void ConfigureServices(IServiceCollection services) {
     services.AddAutoMapper(typeof(AutoMapperProfile));
     services.AddHttpContextAccessor();
     
-    // RecipesServices
+    // Recipes Services
     services.AddTransient<IRecipesService, RecipesService>();
+
+    // Fitness Services
+    services.AddTransient<IWorkoutsService, WorkoutsService>();
 }
 
 void ConfigureDatabases(IServiceCollection services, IConfiguration config)
@@ -77,7 +82,7 @@ void ConfigureDatabases(IServiceCollection services, IConfiguration config)
     string fitnessConnectionString = config.GetConnectionString(FitnessAppSettings.ConnectionStringName);
     services.AddDbContext<FitnessDbContext>(options =>
     {
-        options.UseSqlServer(recipesConnectionString, builder =>
+        options.UseSqlServer(fitnessConnectionString, builder =>
         {
             builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
         });

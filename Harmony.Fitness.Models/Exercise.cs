@@ -10,6 +10,7 @@ namespace Harmony.Fitness.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public bool IsDone { get; set; }
         public int WorkoutId { get; set; }
         public virtual Workout Workout { get; set; }
         public virtual ICollection<ExerciseProperty> Properties { get; set; } = new List<ExerciseProperty>();

@@ -29,15 +29,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Recipes.Common", "H
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fitness", "Fitness", "{549824BB-9C9C-4398-BF96-4A435258E639}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Fitness.Models", "Harmony.Fitness.Models\Harmony.Fitness.Models.csproj", "{E6C9C70F-1BD0-4EFD-B10C-573F26994D90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Fitness.Models", "Harmony.Fitness.Models\Harmony.Fitness.Models.csproj", "{E6C9C70F-1BD0-4EFD-B10C-573F26994D90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Fitness.Data", "Harmony.Fitness.Data\Harmony.Fitness.Data.csproj", "{B27F0BAD-8123-4FEA-85A6-C4811BF85578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Fitness.Data", "Harmony.Fitness.Data\Harmony.Fitness.Data.csproj", "{B27F0BAD-8123-4FEA-85A6-C4811BF85578}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{31EDF1F3-B0F6-4BC5-BEBA-CB76EF6D636A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Common.Models", "Harmony.Common.Models\Harmony.Common.Models.csproj", "{B4210C63-D088-41EC-AF21-A4AB5EB7FDC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Common.Models", "Harmony.Common.Models\Harmony.Common.Models.csproj", "{B4210C63-D088-41EC-AF21-A4AB5EB7FDC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Fitness.Common", "Harmony.Fitness.Common\Harmony.Fitness.Common.csproj", "{B95FBEA4-F50E-4472-B864-BEA1489FD339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Harmony.Fitness.Common", "Harmony.Fitness.Common\Harmony.Fitness.Common.csproj", "{B95FBEA4-F50E-4472-B864-BEA1489FD339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Fitness.Services", "Harmony.Fitness.Services\Harmony.Fitness.Services.csproj", "{430FD1F6-9195-4CF5-8A1D-536866D03645}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{B95FBEA4-F50E-4472-B864-BEA1489FD339}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B95FBEA4-F50E-4472-B864-BEA1489FD339}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B95FBEA4-F50E-4472-B864-BEA1489FD339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{430FD1F6-9195-4CF5-8A1D-536866D03645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{430FD1F6-9195-4CF5-8A1D-536866D03645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{430FD1F6-9195-4CF5-8A1D-536866D03645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{430FD1F6-9195-4CF5-8A1D-536866D03645}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{31EDF1F3-B0F6-4BC5-BEBA-CB76EF6D636A} = {91062061-B9D6-4FF8-B488-E49E873A58C9}
 		{B4210C63-D088-41EC-AF21-A4AB5EB7FDC9} = {31EDF1F3-B0F6-4BC5-BEBA-CB76EF6D636A}
 		{B95FBEA4-F50E-4472-B864-BEA1489FD339} = {549824BB-9C9C-4398-BF96-4A435258E639}
+		{430FD1F6-9195-4CF5-8A1D-536866D03645} = {549824BB-9C9C-4398-BF96-4A435258E639}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E15B4CB-D734-4355-9B2A-95521C7F326E}
