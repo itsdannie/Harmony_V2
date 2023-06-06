@@ -2,10 +2,10 @@ import { IExerciseDto } from "./IExerciseDto";
 
 export interface IWorkoutDto {
     id: number;
-    title: string;
+    title?: string;
     weekday: number;
     date?: Date;
-    exercises: IExerciseDto[]
+    exercises?: IExerciseDto[]
 }
 
 export const defaultWorkout: IWorkoutDto = {

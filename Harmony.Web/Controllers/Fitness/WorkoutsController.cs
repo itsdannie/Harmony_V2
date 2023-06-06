@@ -25,6 +25,15 @@ namespace Harmony.Web.Controllers.Fitness
             return this.Ok(workout);
         }
 
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateWorkout([FromBody] NewWorkoutInputModel input)
+        {
+            WorkoutDto newWorkout = await _workoutsService.CreateWorkout(input.Date);
+
+            return this.Ok(newWorkout);
+        }
+
+
         [HttpPut("title/{id}")]
         public async Task<IActionResult> GetWorkoutForToday(int id, [FromBody] WorkoutTitleInputModel input)
         {

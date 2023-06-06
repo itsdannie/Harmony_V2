@@ -3,9 +3,13 @@ import { DaysOfWeek } from '../../../strings/DaysOfWeek';
 import styles from './Card.module.scss';
 import { ICardProps } from './ICardProps';
 import { CardItem } from './cardItem/CardItem';
-import { httpGet, httpPut } from '../../../../../services/HttpService';
+import { httpPost, httpPut } from '../../../../../services/HttpService';
 import { FitnessTrackerApiEndpoints } from '../../../FitnessTrackerApiEndpoints';
+import { ProgressSpinner } from 'primereact/progressspinner';
+import sharedStyles from '../../../FitnessTrackerSharedStyles.module.scss';
 import { IWorkoutDto } from '../../../models/IWorkoutDto';
+import { Button } from 'primereact/button';
+import { css } from '../../../../../shared/utility';
 
 export const Card = (props: ICardProps): JSX.Element => {
     const { isLoading, workout, updateWorkoutState } = props;
@@ -20,13 +24,43 @@ export const Card = (props: ICardProps): JSX.Element => {
         return '';
     }
 
-    const noWorkoutBody = (<div>No planned workout for today.</div>);
-    const loadingBody = (<div>Loading...</div>)
+    const create = async () => {
+        setIsSaving(true)
+        let workout: IWorkoutDto = await httpPost(
+            FitnessTrackerApiEndpoints.CREATE_WORKOUT,
+            JSON.stringify({ date: new Date() }));
+        props.updateWorkoutState(workout);
+        setIsSaving(false);
+    }
+
+    const noWorkoutBody = (
+        <div className={styles.empty_workout}>
+            <div className={styles.text}>No planned workout for today.</div>
+            <div>
+                <Button
+                    label="Add workout"
+                    className={css(sharedStyles.primary_button, 'p-button-rounded', 'p-button-lg')}
+                    icon="pi pi-plus"
+                    onClick={create}
+                    loading={isSaving}
+                />
+            </div>
+        </div>
+    );
+
+    const loadingBody = (
+        <div className={styles.spinner_container}>
+            <ProgressSpinner
+                className={sharedStyles.custom_progress_spinner}
+                strokeWidth="5"
+            />
+        </div>)
 
     const enableEdit = () => {
         setTitle(workout?.title ?? '');
         setIsEditingTitle(true);
     }
+
     const save = async () => {
         setIsSaving(true);
         try {
@@ -55,7 +89,7 @@ export const Card = (props: ICardProps): JSX.Element => {
         <div className={styles.title_editor}>
             <input
                 disabled={isSaving}
-                type="text" 
+                type="text"
                 value={title}
                 onChange={e => setTitle(e.target.value?.toUpperCase())}
             />
@@ -76,7 +110,7 @@ export const Card = (props: ICardProps): JSX.Element => {
                         <div className={styles.title}>
                             {isEditingTitle ? titleEditor :
                                 <>
-                                    {workout.title.length > 0 ? workout.title : '(Set title)'}
+                                    {workout.title && workout.title.length > 0 ? workout.title : '(Set title)'}
                                     <i className="pi pi-pencil"
                                         onClick={enableEdit}></i>
                                 </>

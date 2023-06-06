@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using Harmony.Common.Models.Enums;
 using Harmony.Fitness.Data;
 using Harmony.Fitness.Models;
 using Harmony.Fitness.Services.Contracts;
@@ -22,6 +23,17 @@ namespace Harmony.Fitness.Services.Implementations
         {
             _db = db;
             _mapper = mapper;
+        }
+
+        public async Task<WorkoutDto> CreateWorkout(DateTimeOffset date)
+        {
+            Workout workout = new Workout();
+            workout.Date = date;
+            workout.Weekday = (Weekday)date.DayOfWeek;
+            _db.Workouts.Add(workout);
+            await _db.SaveChangesAsync();
+
+            return _mapper.Map<WorkoutDto>(workout);
         }
 
         public async Task<WorkoutDto?> GetWorkoutForToday()

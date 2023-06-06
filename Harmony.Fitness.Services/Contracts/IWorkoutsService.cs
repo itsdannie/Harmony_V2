@@ -11,5 +11,6 @@ namespace Harmony.Fitness.Services.Contracts
     {
         Task<WorkoutDto?> GetWorkoutForToday();
         Task UpdateTitle(int id, string title);
+        Task<WorkoutDto> CreateWorkout(DateTimeOffset date);
     }
 }

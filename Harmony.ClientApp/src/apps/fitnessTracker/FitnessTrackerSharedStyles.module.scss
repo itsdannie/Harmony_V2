@@ -1,0 +1,50 @@
+@import "../../shared/styles/Colours.module.scss";
+
+.primary_button {
+    background: $fitness_primary_violet !important;
+    border-color: $fitness_primary_violet !important;
+    box-shadow: none !important;
+
+    &:enabled:hover {
+        background: $fitness_primary_violet_shadow !important;
+        border-color: $fitness_primary_violet_shadow !important;
+    }
+}
+
+.custom_progress_spinner {
+    circle {
+        animation: custom-progress-spinner-dash 1.5s ease-in-out infinite,
+            custom-progress-spinner-color 6s ease-in-out infinite;
+    }
+}
+
+@keyframes custom-progress-spinner-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+@keyframes custom-progress-spinner-color {
+    100%,
+    0% {
+        stroke: $fitness_primary_violet;
+    }
+    40% {
+        stroke: $fitness_primary_green;
+    }
+    66% {
+        stroke: $fitness_secondary_violet_01;
+    }
+    80%,
+    90% {
+        stroke: $fitness_primary_green;
+    }
+}
