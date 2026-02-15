@@ -1,0 +1,27 @@
+@import '../../../../shared/styles/Colours.module.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    color: $secondary_gray_01;
+    label {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+    }
+
+
+    div[class^="ql-editor"] {
+        min-height: 200px;
+        color: $secondary_gray_01 !important;
+    }
+
+    div[class^="p-editor-content"], div[class^="p-editor-toolbar"] {
+        box-shadow: none !important;
+        border-color: $secondary_gray_02 !important;
+        &:focus, &:hover {
+            border-top: 1px solid !important;
+            border-color: $secondary_gray_01 !important;
+        }
+    }
+}

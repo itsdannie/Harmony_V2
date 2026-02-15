@@ -10,6 +10,7 @@ import { RecipesApiEndpoints } from "../../../RecipesApiEndpoints";
 import { RecipesRoutes } from "../../../RecipesRoutes";
 import { IRecipeFormProps } from "./IRecipeFormProps";
 import styles from './RecipeForm.module.scss';
+import { RichTextField } from "../../../../../components/layout/inputs/richTextField/RichTextField";
 
 export const RecipeForm = (props: IRecipeFormProps) => {
     const [recipe, setRecipe] = useState<IRecipeDto>(defaultRecipe);
@@ -56,9 +57,16 @@ export const RecipeForm = (props: IRecipeFormProps) => {
                 name={nameof<IRecipeDto>('title')}
                 onChange={handleChange}
             />
+            <RichTextField
+                label="Description"
+                value={recipe.description}
+                name={nameof<IRecipeDto>('description')}
+                onChange={handleChange}
+            />
             <br />
             <Button
                 label="Save"
+                className={styles.submitButton}
                 onClick={saveRecipe}
             />
         </form>

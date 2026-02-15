@@ -13,12 +13,10 @@ namespace Harmony.Recipes.Data
             typeof(RecipesDbContext).GetMethod(
                 nameof(SetIsDeletedQueryFilter),
                 BindingFlags.NonPublic | BindingFlags.Static);
+        
 
-        private IHttpContextAccessor _httpContextAccessor;
-
-        public RecipesDbContext(DbContextOptions<RecipesDbContext> options, IHttpContextAccessor httpContextAccessor) : base(options)
+        public RecipesDbContext(DbContextOptions<RecipesDbContext> options) : base(options)
         {
-            this._httpContextAccessor = httpContextAccessor;
             this.ChangeTracker.StateChanged += this.ChangeTracker_StateChanged;
             this.ChangeTracker.Tracked += this.ChangeTracker_Tracked;
         }
